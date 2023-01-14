@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>
+    Mande APP
+  </title>
+  ${require('../parts/_head_imports.html') }
+</head>
+
+<body class="">
+  <main role="main" class="container">
+    <div class="row justify-content-center">
+
+      <div class=" col-md-6 align-self-center ">
+
+        <form class="border p-3 rounded-3" id="login-form">
+          <div class="row g-0">
+            <div class="col text-center p-2 mb-3 bg-light">
+              <h4><span class="fs-3">Iniciar Sesión</span></h4>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col mb-3">
+              <label for="nombre" class="form-label">Celular</label>
+              <input type="text" class="form-control" id="nombre" name="nombre">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col mb-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="password" name="password">
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+
+            <div class="col-6 text-center pt-4">
+              <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+            </div>
+
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+
+  ${require('../parts/_footer.html') }
+
+
+  ${require('../parts/_script_imports.html') }
+
+  <script src="../js/login.js"></script>
+</body>
+
+</html>

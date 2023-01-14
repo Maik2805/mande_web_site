@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>
+    Mande APP
+  </title>
+  ${require('../parts/_head_imports.html') }
+</head>
+
+<body class="">
+  <main role="main" class="container">
+    <div class="row justify-content-center">
+
+      <div class=" col-md-8 align-self-center ">
+
+        <form class="border p-3 rounded-3" id="register-form">
+          <div class="row g-0">
+            <div class="col text-center p-2 mb-3 bg-light">
+              <h4><span class="fs-3">Registrate</span></h4>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col mb-3">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombre" name="nombre">
+            </div>
+            <div class="col mb-3">
+              <label for="apellido" class="form-label">Apellido</label>
+              <input type="text" class="form-control" id="apellido" name="apellido">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-lg-3 mb-2">
+              <label for="tipoDocumento" class="form-label">Tipo Doc</label>
+              <select class="form-control" id="tipoDocumento" name="tipoDocumento">
+                <option>CC</option>
+                <option>PS</option>
+                <option>CE</option>
+              </select>
+              <!-- <input type="text" class="form-control" id="tipoDocumento" name="tipoDocumento"> -->
+            </div>
+            <div class="col-12 col-sm mb-3">
+              <label for="documento" class="form-label">Numero Documento</label>
+              <input type="text" class="form-control" id="documento" name="documento">
+            </div>
+            <div class="col-12 col-sm mb-3">
+              <label for="celular" class="form-label">Celular</label>
+              <input type="text" class="form-control" id="celular" name="celular">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 mb-3">
+              <label for="correoElectronico" class="form-label">Email</label>
+              <input type="email" class="form-control" id="correoElectronico" name="correoElectronico">
+            </div>
+            <div class="col-sm-8 mb-3">
+              <label for="direccion" class="form-label">Dirección Residencia</label>
+              <input type="text" class="form-control" id="direccion" name="direccion">
+            </div>
+          </div>
+          <div class="row">
+          </div>
+          <div class="row">
+            <div class="col mb-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <div class="col mb-3">
+              <label for="rpwd" class="form-label">Confirmar Contraseña</label>
+              <input type="password" class="form-control" id="rpwd">
+            </div>
+          </div>
+          <div class="row justify-content-center">
+
+            <div class="col-6 text-center">
+              <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+            </div>
+
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+
+  ${require('../parts/_footer.html') }
+
+
+  ${require('../parts/_script_imports.html') }
+
+  <script src="../js/register.js"></script>
+</body>
+
+</html>
