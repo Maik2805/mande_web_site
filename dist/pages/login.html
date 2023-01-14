@@ -17,6 +17,24 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
 <!-- CSS Files -->
 <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+
+<style>
+    html {
+        position: relative;
+        min-height: 100%;
+    }
+
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        /* Set the fixed height of the footer here */
+        height: 60px;
+        line-height: 60px;
+        /* Vertically center the text there */
+        background-color: #f5f5f5;
+    }
+</style>
 </head>
 
 <body class="">
@@ -35,14 +53,14 @@
           <div class="row">
             <div class="col mb-3">
               <label for="celular" class="form-label">Celular</label>
-              <input type="text" class="form-control" id="celular" name="celular">
+              <input type="text" class="form-control" id="celular" name="celular" required>
             </div>
           </div>
 
           <div class="row">
             <div class="col mb-3">
               <label for="password" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" id="password" name="password">
+              <input type="password" class="form-control" id="password" name="password" required>
             </div>
           </div>
 
@@ -60,8 +78,8 @@
   </main>
 
 
-  <footer class="footer">
-    <div class="container">
+  <footer class="footer mt-auto">
+    <div class="">
         <span class="text-muted">Place sticky footer content here.</span>
     </div>
 </footer>
