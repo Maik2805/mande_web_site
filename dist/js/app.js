@@ -24,12 +24,27 @@ function eraseCookie(name) {
 function saveToken(token) {
     console.log(token);
     localStorage.setItem("authorization", token);
+    localStorage.setItem("user_data", JSON.stringify(parseJwt(token)));
 }
 
-function getToken(token) {
+function getUserData() {
+    return JSON.parse(localStorage.getItem("user_data"));
+}
+
+function getToken() {
     return localStorage.getItem("authorization");
 }
 
 function clearToken(token) {
     localStorage.clear();
+}
+
+function parseJwt(token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+    console.log(JSON.parse(jsonPayload));
+    return JSON.parse(jsonPayload);
 }
