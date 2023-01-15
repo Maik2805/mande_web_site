@@ -13,7 +13,64 @@
     ${require('../parts/_header.html') }
 
     <main role="main" class="container">
+        <div class="container-fluid pt-3">
+            <div class="card bg-info text-white justify-content-center">
+                <div class="card-body justify-content-center">
+                    <div class="row mx-auto justify-content-center">
+                        <form id="cargar_recibo" class="form-inline">
 
+                            <!-- <label for="imagen" class="mr-sm-2">Recibo de servicios</label>
+                                <input type="file" class="form-control-file border form-control mb-2 mr-sm-2"
+                                    placeholder="Adjuntar Foto" id="imagen">
+                                <button type="submit" class="btn btn-primary mb-2">Adjuntar</button> -->
+                            <div class="input-group">
+                                <label for="" class="mr-sm-2">Realiza la carga del recibo de servicios:
+
+                                </label>
+                                <!-- <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                                    </div> -->
+                                <div class="custom-file ml-5">
+                                    <input type="file" name="imagen" class="custom-file-input" id="imagen"
+                                        aria-describedby="imagen">
+                                    <label class="custom-file-label" for="imagen" id="lbl_imagen"
+                                        accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">Elegir
+                                        Archivo</label>
+                                </div>
+                                <input type="submit" class="btn btn-primary ml-2 col-sm-2" value="Enviar">
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="text-center">Servicios Disponibles</h3>
+                            <div class="row">
+                                <div class="table-responsive">
+                                    <table id="tbl_disponibles" class="table table-striped table-hover"
+                                        style="width: 100%;" data-toggle="table" data-pagination="true"
+                                        data-side-pagination="client" data-search="true" data-page-size="10"
+                                        data-ajax="ajaxRequest" data-group-by-field="tipo">
+                                        <thead>
+                                            <tr>
+                                                <th data-field="id">ID</th>
+                                                <th data-field="tipo">Tipo</th>
+                                                <th data-field="descripcion">Descripcion</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </main>
 
@@ -24,6 +81,9 @@
     ${require('../parts/_script_imports.html') }
 
     <script src="../js/main.js"></script>
+    <script src="../js/disponibles.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"> </script>
+
 
 
 </body>

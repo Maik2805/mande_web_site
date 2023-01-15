@@ -17,6 +17,7 @@
     },
     "scripts": {
         "compile": "html-includes --src src --dest dist --watch",
-        "compile:min": "html-includes --src src --dest dist --minify"
+        "compile:min": "html-includes --src src --dest dist --minify",
+        "run_server": "http-server"
     }
 }

@@ -1,3 +1,4 @@
+$.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales['es-ES']);
 $(window).on("load", function () {
     const userData = getUserData();
     if (!userData) {
@@ -12,10 +13,23 @@ $(window).on("load", function () {
 
 $(document).ready(function () {
     console.log("Page Ready")
+    bsCustomFileInput.init()
     completeUserInfo();
 });
 
 function completeUserInfo() {
     const userData = getUserData().usuario;
     $("#username_header").text(userData.nombre_completo)
+}
+
+async function getUsuario() {
+    const userData = getUserData();
+    var usuario = null;
+    await $.ajax({
+        url: BASE_URL + "usuarios/find/" + userData.usuario.celular,
+        success: (data) => { usuario = data },
+        dataType: "json",
+        headers: { "Authorization": "Bearer " + getToken() }
+    });
+    return usuario;
 }
