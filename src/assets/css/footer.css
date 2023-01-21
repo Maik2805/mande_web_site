@@ -1,0 +1,13 @@
+
+.mastfoot{
+    background-color: rgb(247, 237, 225);
+    bottom: 0; 
+    left: 0; 
+    right:0;
+    position: absolute;
+}
+
+.imagen{
+    text-align:center;
+}
+
