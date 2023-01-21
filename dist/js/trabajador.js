@@ -59,7 +59,7 @@ $("#cargar_foto_perfil").on("submit", function (event) {
             alert("Foto de perfil cargada correctamente: " + data);
             $('#cargar_documento').trigger("reset");
             var texto = data.split("_");
-            $("#lbl_documento").text(texto[1] ? texto[1] : texto);
+            $("#lbl_imagen").text(texto[1] ? texto[1] : texto);
         },
         error: function (data) {
             console.error(data);
@@ -76,7 +76,6 @@ function ajaxRequest(params) {
         $.ajax({
             url: BASE_URL + "labores/findByUsuario/" + idUsuario,
             success: (data) => {
-                // console.log(data);
                 params.success(data);
             },
             dataType: "json",
@@ -91,7 +90,6 @@ function ajaxRequest(params) {
 function responseHandler(res) {
     if (res.length > 0) {
         let data = [];
-        console.log("En respH", res);
         for (var i = 0; i < res.length; i++) {
             var val = res[i];
             let labDetail = val.laborTrabajador[0];
@@ -114,13 +112,12 @@ function responseHandler(res) {
 }
 
 function editarFormatter(value, row) {
-    console.log(row);
     let element = `<button
     type="button" class="btn btn-outline-info btn-sm col-6"
     data-toggle="modal" data-target="#laborModal" data-rowid="${row.rowId}" data-user="${row.usuarioId}" data-labor="${value}">Editar</button>
     <button
     type="button" class="btn btn-danger btn-sm col-6"
-    data-toggle="modal" data-target="#trabajadorEliminar" data-rowid="${row.rowId}" data-user="${row.usuarioId}" data-labor="${value}">Eliminar</button>`;
+    data-toggle="modal" data-target="#trabajadorEliminar" data-rowid="${row.rowId}" onClick="confirmDeletionModal(this)">Eliminar</button>`;
     return element;
 }
 
@@ -141,7 +138,6 @@ $("#actualizarLaborForm").on("submit", function (event) {
     });
     json["usuarioId"] = idUsuario;
     json["laborId"] = $("#formLaborId").val();
-    console.log("JSON A ENVIAR: ", json)
     $.ajax({
         url: BASE_URL + "usuarios/addLaborUsuario",
         type: 'post',
@@ -152,7 +148,6 @@ $("#actualizarLaborForm").on("submit", function (event) {
         },
         dataType: 'text',
         success: function (data) {
-            console.log(data);
             $('#tbl_labores').bootstrapTable('refresh');
             swal("Labor Actualizada!", "", "success");
         },
@@ -167,11 +162,62 @@ $("#actualizarLaborForm").on("submit", function (event) {
 });
 
 function loadFormEditarLabor(rowId) {
-    console.log("rowwwId", rowId);
     const rowData = $("#tbl_labores").bootstrapTable('getRowByUniqueId', rowId);
     $("#formLaborName").val(rowData.tipo)
     $("#formLaborPrecio").val(rowData.precio)
     $("#formLaborUnidadPrecio").val(rowData.unidadPrecio)
     $("#formLaborId").val(rowData.laborId)
-    console.log(rowData);
+}
+
+function confirmDeletionModal(btn) {
+    var button = $(btn);
+    var rowId = button.data('rowid');
+    const rowData = $("#tbl_labores").bootstrapTable('getRowByUniqueId', rowId);
+    swal({
+        title: "¿Seguro que quieres Eliminar la Labor?",
+        text: `No podrán contratarte para la labor: "${rowData.tipo}"`,
+        icon: "warning",
+        buttons: ["Cancelar!", "Eliminar!"],
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                deleteLabor(rowData.laborId);
+            } else {
+                swal("Eliminación Cancelada!");
+            }
+        });
+}
+
+function deleteLabor(idLabor) {
+    if (idLabor == undefined || idLabor == null) return;
+    let idUsuario = getUserData().usuario.celular;
+    const json = {
+        usuarioId: idUsuario,
+        laborId: idLabor
+    }
+    $.ajax({
+        url: BASE_URL + "usuarios/inactiveLaborUsuario",
+        type: 'post',
+        data: JSON.stringify({ laborTrabajador: json }),
+        headers: {
+            "Authorization": "Bearer " + getToken(),
+            "Content-Type": 'application/json'
+        },
+        dataType: 'text',
+        success: function (data) {
+            $('#tbl_labores').bootstrapTable('refresh');
+            swal("Labor Eliminada", {
+                icon: "success",
+            });
+        },
+        error: function (data) {
+            console.error(data);
+            alert("ERROR: " + data.responseText);
+        }
+    });
+
+
+
+
 }
