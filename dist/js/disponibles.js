@@ -5,49 +5,9 @@ $(document).ready(function () {
                 alert("Debe Cargar una foto del recibo para contratar servicios");
             } else {
                 var texto = usuario.fotoRecibo.split("_");
-                $("#lbl_imagen").text(texto[1] ? texto[1] : usuario.fotoRecibo);
+                $("#lbl_imagen").text(texto.length > 0 ? texto[texto.length - 1] : usuario.fotoRecibo);
             }
         }).catch((err) => console.error(err));
-
-    // $("#tbl_disponibles").bootstrapTable('updateFormatText', 'NoMatches', 'Por favor realice la busqueda');
-
-
-    // $("#tbl_disponibles").bootstrapTable({
-    //     data: [
-    //         {
-    //             'id': 0,
-    //             'name': 'Item 0',
-    //             'price': '$0'
-    //         },
-    //         {
-    //             'id': 1,
-    //             'name': 'Item 1',
-    //             'price': '$1'
-    //         },
-    //         {
-    //             'id': 2,
-    //             'name': 'Item 2',
-    //             'price': '$2'
-    //         },
-    //         {
-    //             'id': 3,
-    //             'name': 'Item 3',
-    //             'price': '$3'
-    //         },
-    //         {
-    //             'id': 4,
-    //             'name': 'Item 4',
-    //             'price': '$4'
-    //         },
-    //         {
-    //             'id': 5,
-    //             'name': 'Item 5',
-    //             'price': '$5'
-    //         }
-    //     ]
-    // })
-
-
 });
 
 $("#cargar_recibo").on("submit", function (event) {
@@ -120,9 +80,10 @@ $('#trabajadorModal').on('show.bs.modal', function (event) {
 });
 
 function loadTrabajadorCard(data, labor) {
-    console.log(data);
+    let defaultImg = "https://www.w3schools.com/bootstrap4/img_avatar1.png"
+    let imgPath = data.fotoPerfil ? BASE_URL + "public/data_lake/imagenes/" + data.fotoPerfil : defaultImg;
     let html = `<div class="card" style="width:400px">
-    <img class="card-img-top" src="${BASE_URL}public/data_lake/imagenes/${data.fotoPerfil}"
+    <img class="card-img-top" src="${imgPath}"
         alt="Card image">
     <div class="card-body">
         <h4 class="card-title">${data.nombreCompleto}</h4>

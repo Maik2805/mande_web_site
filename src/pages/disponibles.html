@@ -8,18 +8,6 @@
     </title>
     ${require('../parts/_head_imports.html') }
 
-    <style>
-        .spinner {
-            display: block;
-            position: fixed;
-            z-index: 1031;
-            /* High z-index so it is on top of the page */
-            top: calc(50% - (...px / 2));
-            /* where ... is the element's height */
-            right: calc(50% - (...px / 2));
-            /* where ... is the element's width */
-        }
-    </style>
 </head>
 
 <body class="">
@@ -104,13 +92,9 @@
 
                     <!-- Modal body -->
                     <div class="modal-body mx-auto justify-content-center" id="modalBody">
-                        <div class="card" style="width:400px">
-                            <img class="card-img-top" src="https://www.w3schools.com/bootstrap4/img_avatar1.png"
-                                alt="Card image">
-                            <div class="card-body">
-                                <h4 class="card-title">John Doe</h4>
-                                <p class="card-text">Some example text.</p>
-                                <a href="#" class="btn btn-primary">See Profile</a>
+                        <div class="text-center">
+                            <div class="spinner-border text-secondary m-4" role="status">
+                                <span class="sr-only">Loading...</span>
                             </div>
                         </div>
                     </div>
