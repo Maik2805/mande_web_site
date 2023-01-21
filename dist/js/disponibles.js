@@ -77,7 +77,6 @@ $("#cargar_recibo").on("submit", function (event) {
 
 
 function ajaxRequest(params) {
-    console.log("aquiii");
     $.ajax({
         url: BASE_URL + "labores/disponiblesRaw",
         success: (data) => {
@@ -93,23 +92,21 @@ function ajaxRequest(params) {
 }
 
 function contratarFormatter(value, row) {
+    console.log(row);
     let element = `<button
     type="button" class="btn btn-outline-info btn-sm"
-    data-toggle="modal" data-target="#trabajadorModal" data-user="${value}">Contratar</button>`;
+    data-toggle="modal" data-target="#trabajadorModal" data-user="${value}" data-labor="${row.id}">Contratar</button>`;
     return element;
 }
 
 $('#trabajadorModal').on('show.bs.modal', function (event) {
-    $("#modalBody").html(`<div class="text-center">
-                    <div class="spinner-border text-secondary m-4" role="status">
-                    <span class="sr-only">Loading...</span>
-                    </div>
-                </div>`);
+    loadingModal();
     var button = $(event.relatedTarget);
     var usuario = button.data('user');
+    var labor = button.data('labor');
     $.ajax({
         url: BASE_URL + "usuarios/getPublicInfo/" + usuario,
-        success: (data) => loadTrabajadorCard(data),
+        success: (data) => loadTrabajadorCard(data, labor),
         error: (msg) => {
             $(this).modal('hide');
             alert("Error: " + msg.responseText)
@@ -122,7 +119,7 @@ $('#trabajadorModal').on('show.bs.modal', function (event) {
     // modal.find('.modal-body input').val(recipient)
 });
 
-function loadTrabajadorCard(data) {
+function loadTrabajadorCard(data, labor) {
     console.log(data);
     let html = `<div class="card" style="width:400px">
     <img class="card-img-top" src="${BASE_URL}public/data_lake/imagenes/${data.fotoPerfil}"
@@ -131,10 +128,58 @@ function loadTrabajadorCard(data) {
         <h4 class="card-title">${data.nombreCompleto}</h4>
         <h5 class="card-title">Email: ${data.correoElectronico}</h5>
         <h6>Numero Estrellas: ${data.numeroEstrellas}</h6>
-        <h6>Numero Estrellas: ${data.promedioEstrellas}</h6>
-        <a href="#" class="btn btn-primary text-center">Contratar</a>
+        <h6>Promedio Estrellas: ${data.promedioEstrellas}</h6>
+        <button class="btn btn-outline-primary contratar-btn" data-trabajador="${data.celular}" data-labor="${labor}"
+         onClick="contratarTrabajadorLabor(this)">Contratar</button>
     </div>
 </div>`;
     $("#modalBody").html(html);
 
+}
+
+function contratarTrabajadorLabor(btnClicked) {
+    $(btnClicked).prop('disabled', true);
+    let trabajador = $(btnClicked).data('trabajador');
+    let labor = $(btnClicked).data('labor');
+    let input = prompt('Cantidad a contratar.');
+
+    let cantidad = parseInt(input);
+    if (!isNaN(cantidad) && cantidad > 0) {
+        const data = {
+            "trabajador": trabajador,
+            "labor": labor,
+            "cantidad": cantidad
+        }
+        // alert("Contratando!: " + trabajador + ' ' + labor + ' cant: ' + cantidad)
+        loadingModal();
+        $.ajax({
+            url: BASE_URL + "servicios/createBasic",
+            type: 'post',
+            data: JSON.stringify(data),
+            headers: {
+                "Content-Type": 'application/json',
+                "Authorization": "Bearer " + getToken()
+            },
+            dataType: 'text',
+            success: function (data) {
+                $('#tbl_disponibles').bootstrapTable('refresh')
+                swal("Servicio Contratado!", "El trabajador te contactará proximamente", "success");
+            },
+            error: function (data) {
+                console.error(data);
+                alert("ERROR: " + data.responseText);
+            }
+        }).done(() => {
+            $(btnClicked).prop('disabled', false);
+            $("#trabajadorModal").modal('hide');
+        });
+    }
+}
+
+const loadingModal = () => {
+    $("#modalBody").html(`<div class="text-center">
+                    <div class="spinner-border text-secondary m-4" role="status">
+                    <span class="sr-only">Loading...</span>
+                    </div>
+                </div>`);
 }
