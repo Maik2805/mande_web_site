@@ -13,6 +13,7 @@ $(document).ready(function () {
                 let texto = usuario.fotoPerfil.split("_");
                 $("#lbl_imagen").text(texto.length > 0 ? texto[texto.length - 1] : usuario.fotoDocumento);
             }
+            loadLaboresInactivasUsuario(usuario);
         }).catch((err) => console.error(err));
 
     // $("#tbl_labores").bootstrapTable('updateFormatText', 'NoMatches', 'Por favor realice la busqueda');
@@ -161,6 +162,41 @@ $("#actualizarLaborForm").on("submit", function (event) {
     });
 });
 
+$("#addLaborForm").on("submit", function (event) {
+    $("#btnSubmitAddLabor").prop('disabled', true);
+    event.preventDefault();
+    const array = $(this).serializeArray();
+    let idUsuario = getUserData().usuario.celular;
+    const json = {};
+    $.each(array, function () {
+        json[this.name] = this.value || "";
+    });
+    json["usuarioId"] = idUsuario;
+    console.log(json)
+    $.ajax({
+        url: BASE_URL + "usuarios/addLaborUsuario",
+        type: 'post',
+        data: JSON.stringify({ laborTrabajador: json }),
+        headers: {
+            "Authorization": "Bearer " + getToken(),
+            "Content-Type": 'application/json'
+        },
+        dataType: 'text',
+        success: function (data) {
+            $('#tbl_labores').bootstrapTable('refresh');
+            loadLaboresInactivasUsuario();
+            $('#addLaborForm').trigger("reset");
+            swal("Labor Almacenada!", "", "success");
+        },
+        error: function (data) {
+            console.error(data);
+            alert("ERROR: " + data.responseText);
+        }
+    }).done(() => {
+        $("#btnSubmitAddLabor").prop('disabled', false);
+    });
+});
+
 function loadFormEditarLabor(rowId) {
     const rowData = $("#tbl_labores").bootstrapTable('getRowByUniqueId', rowId);
     $("#formLaborName").val(rowData.tipo)
@@ -210,14 +246,31 @@ function deleteLabor(idLabor) {
             swal("Labor Eliminada", {
                 icon: "success",
             });
+            loadLaboresInactivasUsuario();
         },
         error: function (data) {
             console.error(data);
             alert("ERROR: " + data.responseText);
         }
     });
+}
 
-
-
-
+function loadLaboresInactivasUsuario(usuario) {
+    if (!usuario) usuario = getUserData().usuario;
+    // $("#formAddLaborLabor")
+    $.ajax({
+        url: BASE_URL + "labores/listarInactivasByUsuario/" + usuario.celular,
+        success: (data) => {
+            console.log(data);
+            var $dropdown = $("#formAddLaborLabor");
+            $dropdown.find('option').remove().end();
+            $dropdown.append($("<option />").val("").text("Seleccione un trabajo"));
+            $.each(data, function () {
+                $dropdown.append($("<option />").val(this.id).text(this.tipo));
+            });
+        },
+        dataType: "json",
+        headers: { "Authorization": "Bearer " + getToken() }
+    });
+    return usuario;
 }

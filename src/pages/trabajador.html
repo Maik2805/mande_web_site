@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-12">
+                <div class="col-12 mb-3">
                     <div class="card">
                         <div class="card-body">
                             <h3 class="text-center">Mis Labores: </h3>
@@ -89,6 +89,29 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-12 mb-3">
+                    <form class="border p-3 rounded-3 form-inline" id="addLaborForm">
+                        <div class="col-12 col-sm-4">
+                            <label for="laborId" class="form-label justify-content-start">Labor</label>
+                            <select name="laborId" id="formAddLaborLabor" class="custom-select form-control w-100"
+                                required>
+                                <option>Seleccione un trabajo</option>
+                            </select>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <label for="precio" class="form-label justify-content-start">Precio</label>
+                            <input type="number" class="form-control w-100" id="formAddLaborPrecio" name="precio"
+                                required>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <label for="unidadPrecio" class="form-label justify-content-start">Unidad Precio</label>
+                            <input type="text" class="form-control w-100" id="formAddLaborUnidadPrecio"
+                                name="unidadPrecio" required>
+                        </div>
+                        <button id="btnSubmitAddLabor" type="submit"
+                            class="btn btn-primary btn-block col-2 mt-4">Añadir</button>
+                    </form>
                 </div>
             </div>
         </div>
