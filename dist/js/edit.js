@@ -5,43 +5,30 @@ una vez obtenido los pinto con jquery
 .val() 
  */
 
-//In progress
+//Por si se ingresa erroneamente a Edut, poder redirigir a Login.
+$.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales['es-ES']);
 
-async function getName() {
-    const userData = getUserData();
-    var usuario = null;
-    await $.ajax({
-        url: BASE_URL + "usuarios/find/" + userData.usuario.nombre,
-        success: (data) => { usuario = data },
-        dataType: "json",
-        headers: { "Authorization": "Bearer " + getToken() }
-    });
-    return usuario;
-}
-
-$("#edit-form").on("submit", function (event) {
-  event.preventDefault();
-  const array = $(this).serializeArray();
-  const json = {};
-  $.each(array, function () {
-    json[this.name] = this.value || "";
-  });
-  console.log(json);
-  $.ajax({
-    url: BASE_URL + "app/usuarios/find/326778084",
-    type: "get",
-    data: JSON.stringify(json),
-    headers: {
-      "Content-Type": "application/json",
-    },
-    dataType: "json",
-    success: function (data) {
-      console.info(data);
-      alert("success");
-    },
-    error: function (data) {
-      console.log(data);
-      alert(data.responseText);
-    },
-  });
+$(document).ready(function () {
+    console.log("Tuki");
+    completeUserInfo();
 });
+
+$(window).on("load", function () {
+    const userData = getUserData();
+    if (!userData) {
+        alert("Debe iniciar sesión");
+        window.location.replace("./login.html");
+    } else if (new Date(userData.exp * 1000) < new Date()) {
+        console.log(new Date(userData.exp));
+        alert("Sesión expirada");
+        window.location.replace("./login.html");
+    }
+});
+
+function completeUserInfo() {
+    const userData = getUserData().usuario;
+    $("#nombre_completo").val(userData.nombre_completo);
+    $("#documento").val(userData.documento);
+    $("#celular").val(userData.celular);
+    $("#correoElectronico").val(userData.correoElectronico);
+}
