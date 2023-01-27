@@ -18,8 +18,10 @@ $("#login-form").on("submit", function (event) {
         success: function (data) {
             console.log(data);
             saveToken(data.toString());
-            // alert("success");
-            window.location.replace("./index.html");
+            swal("Estás dentro!", "Gracias por elegir Mande App")
+            .then(() => {
+                window.location.replace("./index.html");
+            })
         },
         error: function (data) {
             console.error(data);
