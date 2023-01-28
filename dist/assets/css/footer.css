@@ -1,11 +1,39 @@
 .mastfoot {
-    background-color: rgb(247, 237, 225);
+    background-color: #E1DAD1!important;
     bottom: 0;
     left: 0;
     right: 0;
     position: absolute;
 }
 
+.navbar{
+    background-color: #E1DAD1!important;
+}
+
 .imagen {
     text-align: center;
+}
+
+.swal-modal{
+    width:490px !important;
+}
+
+.swal-text{
+    font: size 20px;
+}
+
+.form-inline label{
+    justify-content: left;
+}
+
+.bg-info{
+    background-color: #ccc0b3!important;
+}
+
+.element.style{
+    background-color: #998e82!important;
+}
+
+.container{
+    font-size: 16px;
 }

@@ -1,17 +1,27 @@
+//const { default: swal } = require("sweetalert");
+
 $(document).ready(function () {
     getUsuario()
         .then((usuario) => {
+            let texto = "";
             if (!usuario.fotoDocumento) {
-                alert("Debe Cargar su documento de identidad para ofrecer servicios.");
+                texto += "Debe cargar su documento de identidad para ofrecer servicios.\n" 
+                //alert("Debe Cargar su documento de identidad para ofrecer servicios.");
+                //swal("Debe cargar su documento de identidad para ofrecer servicios.");
             } else {
                 let texto = usuario.fotoDocumento.split("_");
                 $("#lbl_documento").text(texto[1] ? texto[1] : usuario.fotoDocumento);
             }
             if (!usuario.fotoPerfil) {
-                alert("Debe Cargar su foto de perfil para ofrecer servicios.");
+                texto += "Debe cargar su foto de perfil para ofrecer servicios."
+                //alert("Debe Cargar su foto de perfil para ofrecer servicios.");
+                //swal("Debe cargar su foto de perfil para ofrecer servicios.");
             } else {
                 let texto = usuario.fotoPerfil.split("_");
                 $("#lbl_imagen").text(texto.length > 0 ? texto[texto.length - 1] : usuario.fotoDocumento);
+            }
+            if(texto){
+                swal("IMPORTANTE", texto);
             }
             loadLaboresInactivasUsuario(usuario);
         }).catch((err) => console.error(err));
