@@ -9,6 +9,7 @@ $(window).on("load", function () {
         alert("Sesión expirada");
         window.location.replace("./login.html");
     }
+    $("#username_header").text(userData.usuario.nombre_completo)
 });
 
 $(document).ready(function () {

@@ -18,7 +18,10 @@ $("#register-form").on("submit", function (event) {
         dataType: 'json',
         success: function (data) {
             console.info(data);
-            alert("success");
+            swal("¡Gracias por tu registro!", "Ya puedes iniciar sesión", "success")
+            .then(() => {
+                window.location.replace("./login.html");
+            })
         },
         error: function (data) {
             console.log(data);
