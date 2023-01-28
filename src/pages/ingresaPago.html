@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mande APP</title>
+    ${require('../parts/_head_imports.html') }
+  </head>
+
+  <body class="">
+    ${require('../parts/_header.html') }
+    <main role="main" class="container">
+       <div class="row justify-content-center">
+        <div class="col-md-8 align-self-center">
+          <form class="border p-3 rounded-3" id="metodos-form">
+            <div class="row g-0">
+              <div class="col text-center p-2 mb-3 bg-light">
+                <h4><span class="fs-3">Ingresa Tu método de pago</span></h4>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col mb-3">
+                <label for="numero_tarjeta" class="form-label"
+                  >Numero de la tarjeta</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="numero_tarjeta"
+                  name="numero_tarjeta"
+                  required
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-lg-3 mb-2">
+                <label for="tipo" class="form-label"
+                  >Tipo de tarjeta</label
+                >
+                <select class="form-control" id="tipo" name="tipo">
+                  <option>Débito</option>
+                  <option>Crédito</option>
+                  <option>Credinalga</option>
+                </select>
+              </div>
+              <div class="col-12 col-sm mb-3">
+                <label for="fecha_expiracion" class="form-label"
+                  >Fecha de expiración</label
+                >
+                <input
+                  type="date"
+                  class="form-control"
+                  id="fecha_expiracion"
+                  name="fecha_expiracion"
+                />
+              </div>
+              <div class="col-12 col-sm mb-3">
+                <label for="codigo" class="form-label">CVC</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="codigo"
+                  name="codigo"
+                />
+              </div>
+            </div>
+            <div class="row"></div>
+
+            <div class="row">
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-6 text-center">
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-block"
+                  id="btn-agregar"
+                >
+                  Agregar
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div> 
+      </div>
+
+      <!-- Modals -->
+      <div class="modal fade" id="trabajadorModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Información del trabajador</h4>
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+
+            <!-- Modal body -->
+            <div
+              class="modal-body mx-auto justify-content-center"
+              id="modalBody"
+            >
+              <div class="text-center">
+                <div class="spinner-border text-secondary m-4" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    ${require('../parts/_footer.html') }
+    ${require('../parts/_script_imports.html') }
+
+    <script src="../js/main.js"></script>
+    <script src="../js/disponibles.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+  </body>
+</html>

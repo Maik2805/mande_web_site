@@ -1,31 +1,82 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">Contratar Servicio</a>
-            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
-                data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">Contratar Servicio</a>
+      <button
+        class="navbar-toggler collapsed"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarsExample07"
+        aria-controls="navbarsExample07"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-            <div class="navbar-collapse collapse" id="navbarsExample07">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="./index.html">Bienvenido <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./disponibles.html">Contratar Servicios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./trabajador.html">Ofrecer Servicios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./metodosDePago.html">Métodos de pago</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./edit.html">Edita tu perfil</a>
-                    </li>
-                    <!-- <li class="nav-item dropdown">
+      <div class="navbar-collapse collapse" id="navbarsExample07">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="./index.html"
+              >Bienvenido <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./disponibles.html"
+              >Contratar Servicios</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./trabajador.html">Ofrecer Servicios</a>
+          </li>
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Metodos de pago
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="./ingresaPago.html"
+                >Registra método de pago</a
+              >
+              <a class="dropdown-item" href="./metodosRegistrados.html"
+                >Métodos registrados</a
+              >
+            </div>
+          </div>
+          <!-- <li class="nav-item">
+            <a
+              class="nav-link"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Métodos de pago
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li>
+                <a class="dropdown-item" href="./ingresaMetodo.html"
+                  >Ingresa metodo de pago</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="./metodosRegistrados"
+                  >Tarjetas registradas</a
+                >
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul> -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./edit.html">Edita tu perfil</a>
+          </li> 
+          <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown07"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown07">
@@ -34,13 +85,15 @@
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
                     </li> -->
-                </ul>
-                <h5 id="username_header">Username</h5>
-                <button class="btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i></button>
-                <!-- <form class="form-inline my-2 my-md-0">
+        </ul>
+        <h5 id="username_header">Username</h5>
+        <button class="btn" onclick="logout()">
+          <i class="fas fa-sign-out-alt"></i>
+        </button>
+        <!-- <form class="form-inline my-2 my-md-0">
                     <input class="form-control" type="text" placeholder="Search" aria-label="Search">
                 </form> -->
-            </div>
-        </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
 </header>
