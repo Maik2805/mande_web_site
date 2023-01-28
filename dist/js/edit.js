@@ -45,6 +45,10 @@ $(window).on("load", function () {
       success: function (response) {
         swal({
           title: "Gracias por actualizar tus datos!",
+          text: "Vuelve a iniciar sesión..."
+        })
+        .then (() => {
+          window.location.replace("./login.html");
         })
       },
       error: function (error) {

@@ -23,8 +23,7 @@ $("#login-form").on("submit", function (event) {
                 title: "Estás dentro!",
                 text: "Gracias por elegir mande App",
                 type: "success",
-                timer: 2500,
-                showConfirmButton: false                
+                timer: 780,               
                 })
             .then(() => {
                 window.location.replace("./index.html");
