@@ -37,3 +37,11 @@
 .container {
     font-size: 16px;
 }
+
+.show.dropdown .dropdown-toggle::after {
+    transform: translateY(3px);
+  }
+
+.dropdown-menu{
+    font-size: 14px;
+}
