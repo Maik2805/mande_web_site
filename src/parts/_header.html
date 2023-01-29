@@ -1,33 +1,44 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="#">Contratar Servicio</a>
-      <button
-        class="navbar-toggler collapsed"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarsExample07"
-        aria-controls="navbarsExample07"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <a class="navbar-brand" href="./index.html">Bienvenido</a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample07"
+        aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="navbar-collapse collapse" id="navbarsExample07">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="./index.html"
-              >Bienvenido <span class="sr-only">(current)</span></a
-            >
+          <!-- <li class="nav-item active">
+            <a class="nav-link" href="./index.html">Bienvenido <span class="sr-only">(current)</span></a>
+          </li> -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Cliente
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+              <li>
+                <a class="dropdown-item" href="./disponibles.html">Contratar Servicios</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="./servicios-contratados.html">Servicios Contratados</a>
+              </li>
+            </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./disponibles.html"
-              >Contratar Servicios</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./trabajador.html">Ofrecer Servicios</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Trabajador
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+              <li>
+                <a class="dropdown-item" href="./trabajador.html">Ofrecer Servicios</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="./servicios-prestados.html">Servicios Prestados</a>
+              </li>
+            </ul>
           </li>
           <!-- <div class="dropdown">
             <button
@@ -50,33 +61,22 @@
             </div>
           </div> -->
           <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown1"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
               Métodos de pago
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
               <li>
-                <a class="dropdown-item" href="./ingresaPago.html"
-                  >Ingresa método de pago</a
-                >
+                <a class="dropdown-item" href="./ingresaPago.html">Ingresa método de pago</a>
               </li>
               <li>
-                <a class="dropdown-item" href="./metodosRegistrados.html"
-                  >Métodos registrados</a
-                >
+                <a class="dropdown-item" href="./metodosRegistrados.html">Métodos registrados</a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./edit.html">Edita tu perfil</a>
-          </li> 
+          </li>
           <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown07"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
