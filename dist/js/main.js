@@ -34,3 +34,33 @@ async function getUsuario() {
     });
     return usuario;
 }
+
+function dateFormatter(date) {
+    return date.toLocaleString();
+}
+
+function formatDate(date) {
+    try {
+        return (
+            [
+                date.getFullYear(),
+                padTo2Digits(date.getMonth() + 1),
+                padTo2Digits(date.getDate()),
+            ].join('-') +
+            ' ' +
+            [
+                padTo2Digits(date.getHours()),
+                padTo2Digits(date.getMinutes()),
+                padTo2Digits(date.getSeconds()),
+            ].join(':')
+        );
+
+    } catch (e) {
+        return "-";
+    }
+
+}
+
+function padTo2Digits(num) {
+    return num.toString().padStart(2, '0');
+}
