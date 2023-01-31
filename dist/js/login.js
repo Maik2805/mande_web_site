@@ -18,14 +18,25 @@ $("#login-form").on("submit", function (event) {
         success: function (data) {
             console.log(data);
             saveToken(data.toString());
-            // alert("success");
-            window.location.replace("./index.html");
+            //swal("Estás dentro!", "Gracias por elegir Mande App")
+            swal({
+                title: "Estás dentro!",
+                text: "Gracias por elegir mande App",
+                type: "success",
+                timer: 780,               
+                })
+            .then(() => {
+                window.location.replace("./index.html");
+            })
         },
         error: function (data) {
             console.error(data);
-            alert("ERROR: " + data.responseText);
+            swal({
+                icon: 'error',
+                title: "ERROR: " + data.responseText
+              });
         }
     });
 });
-
+// <3 <-- Para (any: Maik) <3
 // });

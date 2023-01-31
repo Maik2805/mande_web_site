@@ -7,16 +7,20 @@
     "license": "Creative Tim License <www.creative-tim.com/license>",
     "devDependencies": {
         "gulp": "^4.0.2",
-        "gulp-autoprefixer": "^6.1.0",
+        "gulp-autoprefixer": "^8.0.0",
         "gulp-clean": "^0.4.0",
         "gulp-install": "^1.1.0",
-        "gulp-sass": "^4.0.2",
-        "gulp-sourcemaps": "^2.6.5",
         "gulp-open": "^3.0.1",
+        "gulp-sass": "^5.1.0",
+        "gulp-sourcemaps": "^3.0.0",
         "html-includes": "^5.0.0"
     },
     "scripts": {
         "compile": "html-includes --src src --dest dist --watch",
-        "compile:min": "html-includes --src src --dest dist --minify"
+        "compile:min": "html-includes --src src --dest dist --minify",
+        "run_server": "http-server"
+    },
+    "dependencies": {
+        "nodemon": "^2.0.20"
     }
 }

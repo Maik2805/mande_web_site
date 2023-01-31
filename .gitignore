@@ -6,6 +6,7 @@ Codespaces
 Marketplace
 Explore
  
+dist/pages/
 @Maik2805 
 Maik2805
 /
@@ -119,7 +120,6 @@ typings/
 # public
 
 # vuepress build output
-.vuepress/dist
 
 # Serverless directories
 .serverless/

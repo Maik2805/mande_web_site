@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        Mande APP
+    </title>
+    ${require('../parts/_head_imports.html') }
+    <style>
+        .mastfoot {
+        background-color: #ffffff !important;
+        } 
+        </style>
+
+</head>
+
+<body class="">
+    ${require('../parts/_header.html') }
+
+    <main role="main" class="container">
+        <div class="container-fluid pt-3">
+            <div class="row mt-3">
+                <div class="col-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="text-center">Mis Servicios como trabajador: </h3>
+                            <div class="row">
+                                <div class="table-responsive">
+                                    <table id="tbl_servicios" class="table table-striped table-hover"
+                                        style="width: 100%;" data-toggle="table" data-pagination="true"
+                                        data-show-refresh="true" data-side-pagination="client" data-search="true"
+                                        data-page-size="10" data-ajax="ajaxRequest"
+                                        data-response-handler="responseHandler" data-id-field="rowId"
+                                        data-unique-id="rowId" data-sort-name="fechaCreacion" data-sort-order="asc">
+                                        <thead>
+                                            <tr>
+                                                <th data-field="fechaCreacion" data-formatter="formatDate"
+                                                    data-sortable="true">Fecha
+                                                    Creación</th>
+                                                <th data-field="labor">Labor</th>
+                                                <th data-field="cliente" data-sortable="true">Cliente</th>
+                                                <th data-field="descripcion">Descripción</th>
+                                                <th data-field="precio" data-sortable="true">Valor</th>
+                                                <th data-field="calificacion">Calificación</th>
+                                                <th data-field="estado" data-sortable="true">Estado</th>
+                                                <th data-field="fechaFinalizacion" data-formatter="formatDate"
+                                                    data-sortable="true">Fecha
+                                                    Finalización</th>
+                                                <th data-field="laborId" data-formatter="editarFormatter">Finalizar
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+    ${require('../parts/_footer.html') }
+
+
+    ${require('../parts/_script_imports.html') }
+
+    <script src="../js/main.js"></script>
+    <script src="../js/prestados.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"> </script>
+
+
+
+</body>
+
+</html>

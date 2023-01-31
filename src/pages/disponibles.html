@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        Mande APP
+    </title>
+    ${require('../parts/_head_imports.html') }
+    <style>
+        .mastfoot {
+            background-color: #ffffff !important;
+        }
+    </style>
+</head>
+
+<body class="">
+    ${require('../parts/_header.html') }
+
+    <main role="main" class="container">
+        <div class="container-fluid pt-3">
+            <div class="card bg-info text-white justify-content-center">
+                <div class="card-body justify-content-center">
+                    <div class="row mx-auto justify-content-center">
+                        <form id="cargar_recibo" class="form-inline">
+
+                            <!-- <label for="imagen" class="mr-sm-2">Recibo de servicios</label>
+                                <input type="file" class="form-control-file border form-control mb-2 mr-sm-2"
+                                    placeholder="Adjuntar Foto" id="imagen">
+                                <button type="submit" class="btn btn-primary mb-2">Adjuntar</button> -->
+                            <div class="input-group">
+                                <label for="" class="mr-sm-2">Realiza la carga del recibo de servicios:
+
+                                </label>
+                                <!-- <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                                    </div> -->
+                                <div class="custom-file ml-5">
+                                    <input type="file" name="imagen" class="custom-file-input" id="imagen"
+                                        aria-describedby="imagen">
+                                    <label class="custom-file-label" for="imagen" id="lbl_imagen"
+                                        accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">Elegir
+                                        Archivo</label>
+                                </div>
+                                <input type="submit" class="btn btn-primary ml-2 col-sm-2" value="Enviar">
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="text-center">Servicios Disponibles</h3>
+                            <div class="row">
+                                <div class="table-responsive">
+                                    <table id="tbl_disponibles" class="table table-hover" style="width: 100%;"
+                                        data-toggle="table" data-pagination="true" data-show-refresh="true"
+                                        data-side-pagination="client" data-search="true" data-page-size="10"
+                                        data-ajax="ajaxRequest" data-group-by="true" data-group-by-field="tipo">
+                                        <thead>
+                                            <tr>
+                                                <!-- <th data-field="id">ID</th> -->
+                                                <th data-field="tipo" data-sortable="true">Tipo</th>
+                                                <th data-field="descripcion">Descripcion</th>
+                                                <th data-field="nombreCompleto" data-sortable="true">Especialista</th>
+                                                <th data-field="precio" data-sortable="true">Valor Unitario</th>
+                                                <th data-field="unidadPrecio">Unidad</th>
+                                                <th data-field="usuarioId" data-formatter="contratarFormatter">Contratar
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modals -->
+        <div class="modal fade" id="trabajadorModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Información del trabajador</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body mx-auto justify-content-center" id="modalBody">
+                        <div class="text-center">
+                            <div class="spinner-border text-secondary m-4" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    ${require('../parts/_footer.html') }
+
+
+    ${require('../parts/_script_imports.html') }
+
+    <script src="../js/main.js"></script>
+    <script src="../js/disponibles.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"> </script>
+
+
+
+</body>
+
+</html>
