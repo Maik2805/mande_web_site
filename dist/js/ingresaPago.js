@@ -10,3 +10,8 @@ $(window).on("load", function () {
   }
 });
 
+$("#fecha_expiracion").datepicker( {
+  format: "mm-yyyy",
+  startView: "months", 
+  minViewMode: "months"
+});

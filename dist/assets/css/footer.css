@@ -1,9 +1,9 @@
 .mastfoot {
     background-color: #E1DAD1 !important;
-    /* bottom: 0;
+    bottom: 0;
     left: 0;
     right: 0;
-    position: absolute; */
+    position: absolute;
 }
 
 .navbar {
@@ -40,8 +40,12 @@
 
 .show.dropdown .dropdown-toggle::after {
     transform: translateY(3px);
-  }
+}
 
 .dropdown-menu{
     font-size: 14px;
+}
+
+.container-test {
+    margin-top: 8rem;
 }

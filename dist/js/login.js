@@ -31,9 +31,12 @@ $("#login-form").on("submit", function (event) {
         },
         error: function (data) {
             console.error(data);
-            alert("ERROR: " + data.responseText);
+            swal({
+                icon: 'error',
+                title: "ERROR: " + data.responseText
+              });
         }
     });
 });
-
+// <3 <-- Para (any: Maik) <3
 // });

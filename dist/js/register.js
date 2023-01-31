@@ -25,7 +25,10 @@ $("#register-form").on("submit", function (event) {
         },
         error: function (data) {
             console.log(data);
-            alert(data.responseText);
+            swal({
+                icon: 'error',
+                title: data.responseText
+              });
         }
     });
 });
