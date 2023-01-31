@@ -7,6 +7,14 @@
     background-position: center; 
 }
 
+.register-body{
+    padding-top: 15rem;
+    background-color: rgb(211, 210, 208);
+    background:url("../img/fondohf.png")no-repeat;
+    width: 100%;
+    background-size: cover;
+    background-position: center; 
+}
 .col-md-6{
     padding-top: 10px;
     padding-bottom: 10px;
@@ -62,5 +70,9 @@
 }
 
 .container-test {
+    margin-top: 8rem;
+}
+
+.container-ingresaPago {
     margin-top: 8rem;
 }
