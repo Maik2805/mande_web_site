@@ -1,9 +1,24 @@
+.container-login{
+    padding-top: 15rem;
+    background-color: rgb(211, 210, 208);
+    background:url("../img/fondohf.png")no-repeat;
+    width: 100%;
+    background-size: cover;
+    background-position: center; 
+}
+
+.col-md-6{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: white;
+}
+
 .mastfoot {
     background-color: #E1DAD1 !important;
-    bottom: 0;
+    /*bottom: 0;
     left: 0;
     right: 0;
-    position: absolute;
+    position: absolute;*/
 }
 
 .navbar {
