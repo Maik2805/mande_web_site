@@ -21,6 +21,12 @@
     background-color: white;
 }
 
+.col-md-8{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: white;
+}
+
 .mastfoot {
     background-color: #ffffff !important;
     /*bottom: 0;
